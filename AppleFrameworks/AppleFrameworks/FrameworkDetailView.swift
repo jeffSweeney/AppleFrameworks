@@ -12,8 +12,8 @@ struct FrameworkDetailView: View {
     
     let framework: Framework
     
-    var inDarkMode: Bool {
-        return colorScheme == .dark
+    var shadowColor: Color {
+        return colorScheme == .dark ? .white : .gray
     }
     
     var body: some View {
@@ -34,7 +34,7 @@ struct FrameworkDetailView: View {
             Spacer()
             
             FrameworkItem(framework: framework)
-                .shadow(color: inDarkMode ? .white : .gray, radius: 30)
+                .shadow(color: shadowColor, radius: 30)
                 .padding(.vertical)
             
             Text(framework.description)
