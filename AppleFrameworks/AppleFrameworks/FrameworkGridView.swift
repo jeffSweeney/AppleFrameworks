@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FrameworkGridView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     let columns: [GridItem] = [
         .init(.flexible()),
         .init(.flexible()),
@@ -15,16 +17,27 @@ struct FrameworkGridView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, content: {
-                ForEach(0 ... 100, id: \.self) { _ in
-                    FrameworkItem(framework: MockData.frameworks.randomElement()!)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 24) {
+                    ForEach(MockData.frameworks) { framework in
+                        NavigationLink {
+                            FrameworkDetailView(framework: framework)
+                        } label: {
+                            FrameworkItem(framework: framework)
+                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                        }
+                    }
                 }
-            })
+                .padding(.top)
+            }
+            .navigationTitle("🍎 Frameworks")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
     FrameworkGridView()
+//        .colorScheme(.dark)
 }
