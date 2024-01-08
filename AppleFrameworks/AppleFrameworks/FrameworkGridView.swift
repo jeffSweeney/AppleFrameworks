@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct FrameworkGridView: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     let columns: [GridItem] = [
         .init(.flexible()),
         .init(.flexible()),
@@ -25,7 +23,7 @@ struct FrameworkGridView: View {
                             FrameworkDetailView(framework: framework)
                         } label: {
                             FrameworkItem(framework: framework)
-                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                .foregroundStyle(Color(.label))
                         }
                     }
                 }
@@ -39,5 +37,5 @@ struct FrameworkGridView: View {
 
 #Preview {
     FrameworkGridView()
-//        .colorScheme(.dark)
+        .preferredColorScheme(.dark)
 }

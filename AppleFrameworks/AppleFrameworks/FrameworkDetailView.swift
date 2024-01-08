@@ -12,32 +12,45 @@ struct FrameworkDetailView: View {
     
     let framework: Framework
     
+    var inDarkMode: Bool {
+        return colorScheme == .dark
+    }
+    
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                
+                Button(action: {
+                    print("TAP: x")
+                }, label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(Color(.label))
+                        .imageScale(.large)
+                        .frame(width: 44, height: 44)
+                })
+            }
+            
             Spacer()
             
             FrameworkItem(framework: framework)
-                .shadow(color: colorScheme == .dark ? .white : .gray, radius: 30)
+                .shadow(color: inDarkMode ? .white : .gray, radius: 30)
                 .padding(.vertical)
             
             Text(framework.description)
                 .lineSpacing(5)
-                .font(.subheadline)
+                .font(.body)
                 .fontWeight(.semibold)
                 .padding()
             
             Spacer()
             
-            Link("Learn More", destination: URL(string: framework.urlString)!)
-                .padding()
-                .frame(width: 250)
-                .background(Color(UIColor.systemRed))
-                .foregroundStyle(.white)
-                .fontWeight(.bold)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .padding()
+            Button(action: {
+                print("TAP: Learn More")
+            }, label: {
+                AFButton(buttonLabel: "Learn More")
+            })
         }
-        .background(Color(.systemBackground))
     }
 }
 
