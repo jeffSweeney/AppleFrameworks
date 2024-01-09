@@ -11,6 +11,7 @@ struct FrameworkDetailView: View {
     @Environment(\.colorScheme) var colorScheme
     
     let framework: Framework
+    @Binding var isShowing: Bool
     
     var shadowColor: Color {
         return colorScheme == .dark ? .white : .gray
@@ -22,7 +23,7 @@ struct FrameworkDetailView: View {
                 Spacer()
                 
                 Button(action: {
-                    print("TAP: x")
+                    isShowing = false
                 }, label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(Color(.label))
@@ -55,7 +56,7 @@ struct FrameworkDetailView: View {
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.frameworks.randomElement()!)
+    FrameworkDetailView(framework: MockData.frameworks.randomElement()!, isShowing: .constant(true))
         .preferredColorScheme(.dark)
         
 }

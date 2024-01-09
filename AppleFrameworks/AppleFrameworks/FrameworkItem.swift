@@ -14,7 +14,7 @@ struct FrameworkItem: View {
         VStack {
             Image(framework.imageName)
                 .resizable()
-                .frame(width: 90, height: 90)
+                .frame(width: 80, height: 80)
             
             Text(framework.name)
                 .font(.title2)
