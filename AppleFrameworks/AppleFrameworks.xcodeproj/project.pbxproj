@@ -61,6 +61,7 @@
 		E01C51642B4B77C40093E8AD /* AppleFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E01C51792B4C2A6E0093E8AD /* AFButton.swift */,
 				E01C51652B4B77C40093E8AD /* AppleFrameworksApp.swift */,
 				E01C51732B4B781A0093E8AD /* Framework.swift */,
 				E01C51772B4B86530093E8AD /* FrameworkDetailView.swift */,
@@ -69,7 +70,6 @@
 				E01C51752B4B79910093E8AD /* FrameworkItem.swift */,
 				E01C51692B4B77C50093E8AD /* Assets.xcassets */,
 				E01C516B2B4B77C50093E8AD /* Preview Content */,
-				E01C51792B4C2A6E0093E8AD /* AFButton.swift */,
 			);
 			path = AppleFrameworks;
 			sourceTree = "<group>";

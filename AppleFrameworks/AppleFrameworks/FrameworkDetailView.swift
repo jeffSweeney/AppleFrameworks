@@ -18,7 +18,7 @@ struct FrameworkDetailView: View {
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             HStack {
                 Spacer()
                 
@@ -46,9 +46,7 @@ struct FrameworkDetailView: View {
             
             Spacer()
             
-            Button(action: {
-                print("TAP: Learn More")
-            }, label: {
+            Link(destination: URL(string: framework.urlString)!, label: {
                 AFButton(buttonLabel: "Learn More")
             })
         }
