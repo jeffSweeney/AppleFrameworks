@@ -11,7 +11,6 @@ struct FrameworkDetailView: View {
     @Environment(\.colorScheme) var colorScheme
     
     let framework: Framework
-    @Binding var isShowing: Bool
     
     var shadowColor: Color {
         return colorScheme == .dark ? .white : .gray
@@ -19,19 +18,6 @@ struct FrameworkDetailView: View {
     
     var body: some View {
         ScrollView {
-            HStack {
-                Spacer()
-                
-                Button(action: {
-                    isShowing = false
-                }, label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44)
-                })
-            }
-            
             Spacer()
             
             FrameworkItem(framework: framework)
@@ -54,7 +40,6 @@ struct FrameworkDetailView: View {
 }
 
 #Preview {
-    FrameworkDetailView(framework: MockData.frameworks.randomElement()!, isShowing: .constant(true))
+    FrameworkDetailView(framework: MockData.frameworks.randomElement()!)
         .preferredColorScheme(.dark)
-        
 }
